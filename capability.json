@@ -1,0 +1,127 @@
+{
+  "id": "data-substrate",
+  "display_name": "Amplifier Data",
+  "kind": "library",
+  "repository_url": "https://github.com/michaeljabbour/amplifier-tool-data",
+  "promise": "Keep original evidence once. Build the views each capability needs.",
+  "audience": "Developers building evidence, memory or artifact tools that need a shared durable substrate.",
+  "trigger": "Several capabilities need exact retained bytes, provenance and their own replaceable views over the same log.",
+  "skill_path": null,
+  "method_summary": "Store exact bytes as content-addressed Cells in an append-only log. Derive scopes, relations and query lenses over that log. Keep models, interpretation and consumer schemas outside the storage library. Preserve the source log for replay and regeneration.",
+  "modes": [
+    {
+      "name": "Retain",
+      "when": "Evidence or an artifact must keep its original bytes.",
+      "output": "A content reference that can be regenerated from the log."
+    },
+    {
+      "name": "Derive",
+      "when": "A consumer needs its own scope, relations or query lens.",
+      "output": "A replaceable view over the same retained evidence."
+    },
+    {
+      "name": "Reopen",
+      "when": "A process ends and another needs the same record.",
+      "output": "Durable replay through the native Rust kernel."
+    }
+  ],
+  "examples": [
+    {
+      "title": "One source note, two useful views",
+      "brief": "A fictional project stores a parser-check note and the next action derived from it.",
+      "before": "The evidence tool and artifact tool keep disconnected copies with no shared source reference.",
+      "after": "Each consumer owns its scope; a derived_from relation connects the next action to the exact source note in one append-only log.",
+      "why": "Consumers can change their views without changing the retained source bytes.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Alpha library. Durable paths require the native Rust kernel; the Python source fallback is in-memory only.",
+    "One writer owns a durable file; multi-process access uses the companion server/RemoteStore seam.",
+    "Invalidation does not erase bytes from an append-only log. Keep original logs and review retention separately.",
+    "The supplied binary wheel is macOS Apple silicon only; other native platforms need source builds and remain unverified by this release."
+  ],
+  "install_commands": [
+    "python3 -m venv .venv",
+    ". .venv/bin/activate",
+    "python3 -m pip install ."
+  ],
+  "runtime_install_commands": [
+    "amplifier-data-doctor --self-test"
+  ],
+  "verification": [
+    {
+      "name": "Reviewed public export",
+      "status": "passed",
+      "evidence": "171 allowlisted files at the reviewed tag; no original private history, working notes or operational store included."
+    },
+    {
+      "name": "Installed native wheel",
+      "status": "passed",
+      "evidence": "533 installed-wheel Python checks passed. Temporary two-consumer, exact Cell regeneration and durable close/reopen checks passed."
+    },
+    {
+      "name": "Cross-platform and real-user acceptance",
+      "status": "not-run",
+      "evidence": "This release validates macOS Apple silicon/Python 3.12; universal platform support, production stores and outside-user outcomes are unmeasured."
+    }
+  ],
+  "docs": [
+    "docs/PUBLIC-RELEASE.md",
+    "docs/CONSTRAINTS.md",
+    "docs/SPEC.md",
+    "docs/ARCHITECTURE.md",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "marketing": {
+    "headline": "Keep the evidence. Change the view.",
+    "lead": "An independent Python storage library for tools that need exact source bytes, durable history and room to evolve. Memory is one consumer; your own capability can be another.",
+    "benefits": [
+      {
+        "title": "Keep a dependable source",
+        "body": "Content-addressed Cells and an append-only log retain the original bytes behind a result."
+      },
+      {
+        "title": "Give each tool its own view",
+        "body": "Scopes, relations and query lenses let multiple capabilities work over a shared substrate without importing each other."
+      },
+      {
+        "title": "Rebuild what you derive",
+        "body": "Regenerate complete Cells from the log and replace derived views as your application changes."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Write the source",
+        "detail": "Store a fictional parser-check note as bytes. The returned content reference identifies the source your application can cite."
+      },
+      {
+        "title": "Connect the next action",
+        "detail": "A second consumer stores a next-action artifact in its own scope and relates it to the source note. Interpretation stays with the consumer."
+      },
+      {
+        "title": "Close and return",
+        "detail": "Close the writer and reopen the native log. Retrieve the same bytes, or regenerate the Cell after discarding its materialized copy."
+      }
+    ],
+    "use_when": [
+      "Your application needs exact retained evidence plus derived summaries or indexes.",
+      "Multiple capabilities need the same storage substrate while keeping independent schemas and models.",
+      "You want a local native log you can close, replay and inspect."
+    ],
+    "not_for": [
+      "You need a turnkey end-user memory app or hosted database service.",
+      "Your retention policy requires immediate physical deletion from an append-only file.",
+      "You need validated multi-platform production support today."
+    ],
+    "output_preview": "source = store.write_cell(b\"Fictional parser check remains unverified.\")\naction = store.write_cell(b\"Fictional next step: run the parser check.\")\nstore.relate(action, source, \"derived_from\")\n\nOriginal bytes retained.\nConsumer views replaceable.\nModels owned by the caller.",
+    "example_note": "This fictional illustration shows the API shape. The doctor runs a separate temporary two-consumer and durable-restart check.",
+    "install_notes": [
+      "Python 3.11+, Rust (cargo/rustc) and a native compiler are required for source installation.",
+      "A reviewed macOS Apple silicon wheel and source distribution are linked from the public release guide.",
+      "Package name: amplifier-data. Python import: amplifier_data. No model or runtime Python dependency is owned by this library."
+    ],
+    "proof_summary": "The reviewed source and native artifacts resolve publicly. Installed-wheel tests check exact bytes, scoped consumers, regeneration and durable restart. Cross-platform and outside-user acceptance remain open.",
+    "next_step": "Install in a fresh environment, run the doctor on its temporary test store, then adapt one small example to your own consumer."
+  }
+}

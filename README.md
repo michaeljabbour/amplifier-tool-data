@@ -1,47 +1,60 @@
-# AI Storage
+# Amplifier Data
 
-An independently installable append-only storage library for content-addressed, regenerable Cells and swappable views. Native package/import identity stays `amplifier-data` / `amplifier_data`; the proposed repository name is `amplifier-tool-data`.
+Keep original evidence once. Build the views each capability needs.
 
-This is a generated, allowlisted release snapshot. It contains no prior private repository history, operational store or development handoff notes. Publishing this snapshot requires explicit owner approval.
+An independent Python library with a Rust storage kernel. It retains exact bytes as content-addressed Cells in an append-only log, then lets each consumer derive scopes, relations and query views. Memory is one consumer; the storage library does not import or own Memory, your application or an AI model.
 
-## Install and verify
+[Explore the site](https://michaeljabbour.github.io/amplifier-tool-data/) · [Reviewed release and artifacts](https://github.com/michaeljabbour/amplifier-tool-data/releases/tag/v0.2.0-reviewed) · [Specification](docs/SPEC.md)
 
-Python 3.11+, Rust (`cargo` and `rustc`) and a native build toolchain are required when installing from source. The compiled Rust/PyO3 kernel supplies durable paths. A source checkout can use an in-memory Python fallback; it must not claim persistence without the native kernel.
+## Try it
+
+Python 3.11+, Git, Rust (`cargo` and `rustc`) and a native compiler are needed for source installation. Start in an empty directory:
 
 ```sh
-python3 -m pip install .
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install 'git+https://github.com/michaeljabbour/amplifier-tool-data@40450647367db2a2b5058bea1d81a6d248c24c94'
 amplifier-data-doctor --self-test
 ```
 
-The library owns no model and has no runtime Python dependencies. Optional intent compilers, critics and embedders are supplied by callers. The doctor opens only an explicitly requested temporary test store, never an existing user store.
+The doctor creates and removes its own temporary fictional store. For durable operation, check `rust_extension: true`, `durable_available: true` and `self_test.durable_restart: true`. The source fallback is in-memory only. A [prebuilt macOS Apple silicon wheel](https://github.com/michaeljabbour/amplifier-tool-data/releases/download/v0.2.0-reviewed/amplifier_data-0.2.0-cp311-abi3-macosx_11_0_arm64.whl) is available; other native platforms remain unverified by this release.
 
-## Two consumers, one substrate
+## What you can build
+
+- Evidence tools that retain the exact source behind a summary or decision.
+- Independent capabilities with their own scopes and schemas over one storage substrate.
+- Replaceable relational, graph, vector or other lenses over a replayable log.
+
+This fictional example uses a temporary store and no model:
 
 ```python
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from amplifier_data import AmplifierStore
 
-store = AmplifierStore(path="fictional-example.log", record_access=False)
-evidence_scope = store.write_cell(b"fictional-evidence-consumer")
-artifact_scope = store.write_cell(b"fictional-artifact-consumer")
-evidence = store.write_cell(b"Fictional check remains unverified.")
-artifact = store.write_cell(b"Fictional next action: run the existing check.")
-store.scope(evidence, evidence_scope)
-store.scope(artifact, artifact_scope)
-store.relate(artifact, evidence, "derived_from")
-assert store.regenerate(evidence, record_access=False).payload == b"Fictional check remains unverified."
-store.close()
+with TemporaryDirectory() as folder:
+    store = AmplifierStore(path=str(Path(folder) / "fictional.log"), record_access=False)
+    evidence = store.write_cell(b"Fictional parser check remains unverified.")
+    action = store.write_cell(b"Fictional next step: run the parser check.")
+    store.relate(action, evidence, "derived_from")
+    assert store.regenerate(evidence, record_access=False).payload == b"Fictional parser check remains unverified."
+    store.close()
 ```
 
-A single writer owns a durable file. Multiple processes use the companion server/RemoteStore seam. A fact invalidation does not erase bytes from the append-only log. See [constraints](docs/CONSTRAINTS.md), [specification](docs/SPEC.md) and [architecture](docs/ARCHITECTURE.md).
+The library owns no model and has no runtime Python dependencies. Optional intent compilers, critics and embedders belong to callers. One writer owns a durable file; multiple processes use the companion server/RemoteStore seam. Invalidating a fact does not erase bytes from the log. Read the [constraints](docs/CONSTRAINTS.md) before choosing it for real data.
 
-## Build artifacts
+## What is verified
 
-Install `maturin>=1.15,<2` as a build tool, then run `python3 scripts/build_release.py`. It normalizes the source archive, builds a wheel from that archive, remaps private compiler paths, normalizes SBOM path identifiers and regenerates wheel RECORD hashes. `dist/` contains the artifacts. The fixed-platform artifact hash is checked separately before making a byte-reproducibility claim.
+The reviewed public release passed 533 installed-wheel Python checks, 121 Rust unit checks and 3 native durable gates. Its two-consumer exercise checks scope separation, complete Cell regeneration and durable close/reopen. These are functional checks on temporary fictional data, not evidence of better agent answers, outside-user usefulness or production acceptance.
 
-## Verification scope
+The [public release guide](docs/PUBLIC-RELEASE.md) identifies the exact reviewed source and artifact hashes. The original private repository, Git history, working notes and operational stores are excluded. Later public documentation and site commits keep the native implementation unchanged.
 
-The canonical baseline passed 533 Python tests, 121 Rust unit tests and 3 native durable gates. The release retains 532 functional checks and replaces one private historical cleanup-policy check with one public export-layout gate. Install the wheel and pytest in a clean venv, then run `python3 scripts/test_installed.py` to test that installed artifact; source-only imports are refused. Export acceptance separately verifies the installed wheel, source archive and two-consumer protocol. No external provider, production store or existing Memory data is opened by these tests.
+## Develop
 
-## License and provenance
+Install `maturin>=1.15,<2` as a build tool, then run `python3 scripts/build_release.py`. Test an installed native wheel outside the checkout with `python3 scripts/test_installed.py`; source-only imports cannot establish durable behavior. See [architecture](docs/ARCHITECTURE.md), [specification](docs/SPEC.md) and the runnable `examples/`.
 
-The original MIT notice is retained. [Third-party notices](THIRD_PARTY_NOTICES.md) inventory the Rust build dependency closure; supplied license texts are packaged under `amplifier_data/licenses/`. A per-file export manifest is included; the private source revision and source-to-export mapping are retained in the local release-control record, not in this snapshot.
+The repository is `amplifier-tool-data`; package/import identities remain `amplifier-data` / `amplifier_data`.
+
+## License
+
+MIT. Original notices are retained, together with [third-party Rust dependency notices](THIRD_PARTY_NOTICES.md) and the supplied license texts in `amplifier_data/licenses/`.

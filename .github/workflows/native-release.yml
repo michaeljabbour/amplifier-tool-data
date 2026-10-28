@@ -1,0 +1,30 @@
+name: Native storage acceptance
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Build and install native wheel in an empty environment
+        run: |
+          python -m venv "$RUNNER_TEMP/data-native"
+          "$RUNNER_TEMP/data-native/bin/python" -m pip install . pytest
+      - name: Test the installed package outside the checkout
+        run: |
+          "$RUNNER_TEMP/data-native/bin/python" scripts/test_installed.py
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/data-native/bin/amplifier-data-doctor" --self-test
+      - name: Test the Rust kernel
+        run: cargo test -p amplifier-data-core --locked
