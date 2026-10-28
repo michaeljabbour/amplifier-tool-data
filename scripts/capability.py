@@ -421,7 +421,7 @@ def build(data):
         install += (
             "<details><summary>Native tools and optional execution</summary><pre><code>"
             + E("\n".join(native))
-            + "</code></pre><p>These commands install the execution backend. The portable method is a separate surface.</p></details>"
+            + "</code></pre><p>These commands are for the optional native surface. Follow its installation guide and prerequisites; portable method installation is separate.</p></details>"
         )
     install_note = (
         "Keep the complete skill folder together, including its references and license. The host applies the method in your context; the skill does not start a background service."
@@ -444,11 +444,31 @@ def build(data):
         + "</p></li>"
         for v in data.get("verification", [])
     )
+    repository_url = safe_url(data.get("repository_url", "")).rstrip("/")
+
+    def documentation_url(name):
+        # Reading on GitHub keeps native images and relative guide links together.
+        return (
+            repository_url + "/blob/main/" + name
+            if repository_url.startswith("https://github.com/")
+            else name
+        )
+
+    document_labels = {
+        "README.md": "Read the guide",
+        "LICENSE": "License",
+        "CHANGELOG.md": "Changes",
+        "capability.json": "Release metadata",
+        "docs/INSTALL.md": "Install guide",
+        "docs/NATIVE-README.md": "Native guide",
+        "docs/VALIDATION.md": "Validation",
+        "docs/MIGRATION.md": "Migration",
+    }
     doc_links = " · ".join(
         '<a href="'
-        + E(name, quote=True)
+        + E(documentation_url(name), quote=True)
         + '">'
-        + E(Path(name).stem.replace("-", " "))
+        + E(document_labels.get(name, Path(name).stem.replace("-", " ")))
         + "</a>"
         for name in exports
     )
