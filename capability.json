@@ -39,7 +39,7 @@
     "Alpha library. Durable paths require the native Rust kernel; the Python source fallback is in-memory only.",
     "One writer owns a durable file; multi-process access uses the companion server/RemoteStore seam.",
     "Invalidation does not erase bytes from an append-only log. Keep original logs and review retention separately.",
-    "The supplied binary wheel is macOS Apple silicon only; other native platforms need source builds and remain unverified by this release."
+    "The supplied binary wheel is macOS Apple silicon only. Source-built native acceptance also passes on Ubuntu 24.04/Python 3.12; other platform/toolchain combinations remain unverified."
   ],
   "install_commands": [
     "python3 -m venv .venv",
@@ -61,9 +61,9 @@
       "evidence": "533 installed-wheel Python checks passed. Temporary two-consumer, exact Cell regeneration and durable close/reopen checks passed."
     },
     {
-      "name": "Cross-platform and real-user acceptance",
-      "status": "not-run",
-      "evidence": "This release validates macOS Apple silicon/Python 3.12; universal platform support, production stores and outside-user outcomes are unmeasured."
+      "name": "Platform acceptance and user outcomes",
+      "status": "partial",
+      "evidence": "macOS Apple silicon/Python 3.12 and Ubuntu 24.04/Python 3.12 native installed-wheel checks pass. Windows/other platforms, production stores and outside-user outcomes remain unmeasured."
     }
   ],
   "docs": [
@@ -112,7 +112,7 @@
     "not_for": [
       "You need a turnkey end-user memory app or hosted database service.",
       "Your retention policy requires immediate physical deletion from an append-only file.",
-      "You need validated multi-platform production support today."
+      "You need validated production support or Windows native acceptance today."
     ],
     "output_preview": "source = store.write_cell(b\"Fictional parser check remains unverified.\")\naction = store.write_cell(b\"Fictional next step: run the parser check.\")\nstore.relate(action, source, \"derived_from\")\n\nOriginal bytes retained.\nConsumer views replaceable.\nModels owned by the caller.",
     "example_note": "This fictional illustration shows the API shape. The doctor runs a separate temporary two-consumer and durable-restart check.",
@@ -121,7 +121,7 @@
       "A reviewed macOS Apple silicon wheel and source distribution are linked from the public release guide.",
       "Package name: amplifier-data. Python import: amplifier_data. No model or runtime Python dependency is owned by this library."
     ],
-    "proof_summary": "The reviewed source and native artifacts resolve publicly. Installed-wheel tests check exact bytes, scoped consumers, regeneration and durable restart. Cross-platform and outside-user acceptance remain open.",
+    "proof_summary": "The reviewed source and native artifacts resolve publicly. Installed-wheel tests on macOS Apple silicon and Ubuntu 24.04 check exact bytes, scoped consumers, regeneration and durable restart. Other platforms and outside-user acceptance remain open.",
     "next_step": "Install in a fresh environment, run the doctor on its temporary test store, then adapt one small example to your own consumer."
   }
 }

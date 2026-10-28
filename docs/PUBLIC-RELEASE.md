@@ -11,7 +11,7 @@ python3 -m pip install 'https://github.com/michaeljabbour/amplifier-tool-data/re
 amplifier-data-doctor --self-test
 ```
 
-Use a virtual environment. Other platforms need Rust and a native compiler to install the source; cross-platform native acceptance is not claimed by this release. The reviewed [source distribution](https://github.com/michaeljabbour/amplifier-tool-data/releases/download/v0.2.0-reviewed/amplifier_data-0.2.0.tar.gz) is public too.
+Use a virtual environment. Source installation needs Rust and a native compiler. [Native CI](https://github.com/michaeljabbour/amplifier-tool-data/actions/runs/40744636502) also passes installed-wheel and Rust acceptance on Ubuntu 24.04/Python 3.12; Windows and other platform/toolchain combinations remain unverified. The reviewed [source distribution](https://github.com/michaeljabbour/amplifier-tool-data/releases/download/v0.2.0-reviewed/amplifier_data-0.2.0.tar.gz) is public too.
 
 | Artifact | SHA256 |
 |---|---|

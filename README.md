@@ -17,7 +17,7 @@ python3 -m pip install 'git+https://github.com/michaeljabbour/amplifier-tool-dat
 amplifier-data-doctor --self-test
 ```
 
-The doctor creates and removes its own temporary fictional store. For durable operation, check `rust_extension: true`, `durable_available: true` and `self_test.durable_restart: true`. The source fallback is in-memory only. A [prebuilt macOS Apple silicon wheel](https://github.com/michaeljabbour/amplifier-tool-data/releases/download/v0.2.0-reviewed/amplifier_data-0.2.0-cp311-abi3-macosx_11_0_arm64.whl) is available; other native platforms remain unverified by this release.
+The doctor creates and removes its own temporary fictional store. For durable operation, check `rust_extension: true`, `durable_available: true` and `self_test.durable_restart: true`. The source fallback is in-memory only. A [prebuilt macOS Apple silicon wheel](https://github.com/michaeljabbour/amplifier-tool-data/releases/download/v0.2.0-reviewed/amplifier_data-0.2.0-cp311-abi3-macosx_11_0_arm64.whl) is available; a source-built native wheel also passes acceptance on Ubuntu 24.04/Python 3.12. Other native platforms remain unverified by this release.
 
 ## What you can build
 
@@ -45,7 +45,7 @@ The library owns no model and has no runtime Python dependencies. Optional inten
 
 ## What is verified
 
-The reviewed public release passed 533 installed-wheel Python checks, 121 Rust unit checks and 3 native durable gates. Its two-consumer exercise checks scope separation, complete Cell regeneration and durable close/reopen. These are functional checks on temporary fictional data, not evidence of better agent answers, outside-user usefulness or production acceptance.
+The reviewed public release passed 533 installed-wheel Python checks, 121 Rust unit checks and 3 native durable gates on macOS Apple silicon. Public native CI also passes the installed-wheel suite and Rust kernel suite on Ubuntu 24.04/Python 3.12. Its two-consumer exercise checks scope separation, complete Cell regeneration and durable close/reopen. These are functional checks on temporary fictional data, not evidence of better agent answers, outside-user usefulness or production acceptance.
 
 The [public release guide](docs/PUBLIC-RELEASE.md) identifies the exact reviewed source and artifact hashes. The original private repository, Git history, working notes and operational stores are excluded. Later public documentation and site commits keep the native implementation unchanged.
 
