@@ -602,7 +602,7 @@
     },
     {
       "path": "scripts/test_installed.py",
-      "sha256": "84d8d6f48ce10c0be4cc49c0253d32f9d8b9d836e438b2177228ae56273be337",
+      "sha256": "cb5ff401ba19f813829a8a0a0ddba00c78a43082a3e7f5d7196bcb14ad4bfc01",
       "license": "MIT"
     },
     {

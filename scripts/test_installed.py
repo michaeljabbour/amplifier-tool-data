@@ -6,6 +6,8 @@ and verifies the installed package before pytest can add source paths.
 """
 from pathlib import Path
 import sys
+import os
+import tempfile
 import amplifier_data
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -15,4 +17,7 @@ if not origin.is_relative_to(Path(sys.prefix).resolve()) or origin.is_relative_t
 if not amplifier_data.RUST_AVAILABLE:
     raise SystemExit('Installed wheel has no native kernel; durable tests cannot be claimed.')
 import pytest
-raise SystemExit(pytest.main(['-q',str(ROOT/'tests')]))
+with tempfile.TemporaryDirectory(prefix='storage-installed-tests-') as tmp:
+    os.chdir(tmp)  # Child `python -m` calls must also use the installed wheel.
+    result=pytest.main(['-q',str(ROOT/'tests')])
+raise SystemExit(result)
