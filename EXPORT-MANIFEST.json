@@ -1,0 +1,859 @@
+{
+  "format": "storage-public-export/1",
+  "generated_snapshot": true,
+  "package": "amplifier-data",
+  "import": "amplifier_data",
+  "private_history_included": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "c30b7a8d91743454313d0a0f71cc973c5494560373d85508550ed595e68f6008",
+      "license": "MIT"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "88844ec607dca95123251b5a22df49ee4ebf8413aa5bcc9c1dc74a7d29decb53",
+      "license": "MIT"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "98c8fde1cc9e4290c723ca0f3abda61ec022a4935d5836c978aac6748ac81f7a",
+      "license": "MIT"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "991d79a0f5864368856172a918faae2657a8f2e50d9c21e2f35437f06c03c1ed",
+      "license": "MIT"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "4ee7194b06344a158d8a0d2b3547a5c7da382f8fc3ffd7e2a36ee4bb78919c00",
+      "license": "MIT"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3ffcb512e72a639475c7c3ffa928d71fe0a5691cded2d62c5d7ca11a77fd70fb",
+      "license": "MIT"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "84d9ed0a6e76d0d95fff6b41873bf1fa94fe28d571fbf395c92072ccd75ee29a",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/__init__.py",
+      "sha256": "37f9b2fd0a77701f4217838c82e5bdc8095a78284bacbbd2304a936781827076",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/_codec.py",
+      "sha256": "82511e88cb47400ffb6ed1d8f2165725a689f707f00e5984fa7c8dbd7083f2dc",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/autonomic.py",
+      "sha256": "6ee84da15e458a3fed6126b53ac71d3a8a903afbb5fa0c78b16f2d3a587e8e9c",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/causal.py",
+      "sha256": "5f7ad347898250020659d07c246260190dfbd46cf31e341f5006297f52eea408",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/client.py",
+      "sha256": "541bea4220a137d898c4b86c9e5d28837ee87a6e5be53a7d1dd539a649675d18",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/compaction.py",
+      "sha256": "55b5912699da21fba465403f952945bb698d87280ee2a311f389767293f0b369",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/doctor.py",
+      "sha256": "51ee145b7b2dd6dfbdfc3e4c619ece3182e311c4bb3a352139ba0edafa7c15ee",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/embedding.py",
+      "sha256": "1f185d6c989cfb9b3a878e98f18c26d7d4000eca44b0f2f0eb6ece0c6a18ab59",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/envelope.py",
+      "sha256": "28630a60e29eb11280db1c1ecf62f825a796a55a7552b0eb98e2e941e5773ec0",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/integrity.py",
+      "sha256": "ca60d67439c2daf53c234b0456544ac18c59ead34f799e90917a24bb61b705c1",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/intent.py",
+      "sha256": "94e389eb2c438bf363fc94e514e32322124e6d3815b86e4f13919a1741fe10db",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/interpreter.py",
+      "sha256": "79cbe1f0a3f8f2bc8dd8e5f40cf0ec2276be5efb95f0307aab42839ca9442ce0",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/kernel.py",
+      "sha256": "183d64bdb11c6729209500e25bc79a11706e38c5a1b104c842eb4e7c0ecb007e",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/__init__.py",
+      "sha256": "63d1f28ca24f525e0f5687142689f7ddceffa14b836d8042ce47588f95c05384",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/_scope.py",
+      "sha256": "22649f5761848a72b28b7ead85686fe50cdb95d165f983c079dd3f56261d8176",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/bm25.py",
+      "sha256": "0a75daa89be80fa20cae3aeee016b95578a7b40a8845720400851ef32327ed9c",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/graph.py",
+      "sha256": "8317c366562731f41826279742a6a8819a5f083c07112cc2ef61680957b517ac",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/grouped.py",
+      "sha256": "6befef711c588bab2e6016a03ec931f58aa8d31ed0001d2fbd665fafcb553653",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/index.py",
+      "sha256": "eebed874bf9cec4e45534c17ad0c21ed4eb070042ce8697036f503f7762e2e2f",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/relational.py",
+      "sha256": "63ca5aa05a62d3e7f7ee8cc5076be9ac51ee542a91aa6912bec19b4f47cc1ba3",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/temporal.py",
+      "sha256": "eaa21ec8bcae7a7e2e99da1c3f9e1a48c38b7ea0c389db470f7583cdb933bd2f",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/lenses/vector.py",
+      "sha256": "fae2703700d40b428fcdf8f72e5d329b48de69677e65ec12387a27908440d81b",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/autocfg-1.5.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/autocfg-1.5.1/LICENSE-MIT",
+      "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/block-buffer-0.10.4/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/block-buffer-0.10.4/LICENSE-MIT",
+      "sha256": "d5c22aa3118d240e877ad41c5d9fa232f9c77d757d4aac0c2f943afc0a95e0ef",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/cfg-if-1.0.4/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/cfg-if-1.0.4/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/cpufeatures-0.2.17/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/cpufeatures-0.2.17/LICENSE-MIT",
+      "sha256": "ae9baa7beea910273c2f384c2a6b721fb7bd02bda3436074a1072e4ee689f985",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/crypto-common-0.1.7/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/crypto-common-0.1.7/LICENSE-MIT",
+      "sha256": "3521672491a3479422d5fe1aca6645dd2984090f85da6e5205abfb18fb7a6897",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/digest-0.10.7/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/digest-0.10.7/LICENSE-MIT",
+      "sha256": "9e0dfd2dd4173a530e238cb6adb37aa78c34c6bc7444e0e10c1ab5d8881f63ba",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/generic-array-0.14.7/LICENSE",
+      "sha256": "c09aae9d3c77b531f56351a9947bc7446511d6b025b3255312d3e3442a9a7583",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/heck-0.5.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/heck-0.5.0/LICENSE-MIT",
+      "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/indoc-2.0.7/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/indoc-2.0.7/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/libc-0.2.186/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/libc-0.2.186/LICENSE-MIT",
+      "sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/memoffset-0.9.1/LICENSE",
+      "sha256": "3234ac55816264ee7b6c7ee27efd61cf0a1fe775806870e3d9b4c41ea73c5cb1",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/once_cell-1.21.4/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/once_cell-1.21.4/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/portable-atomic-1.13.1/LICENSE-APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/portable-atomic-1.13.1/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "path": "amplifier_data/licenses/proc-macro2-1.0.106/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/proc-macro2-1.0.106/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-0.22.6/LICENSE-APACHE",
+      "sha256": "71073d492e996de196dbe1eb1e4c94c27c014c841b288161265b2efd06d0af28",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-0.22.6/LICENSE-MIT",
+      "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-build-config-0.22.6/LICENSE-APACHE",
+      "sha256": "71073d492e996de196dbe1eb1e4c94c27c014c841b288161265b2efd06d0af28",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-build-config-0.22.6/LICENSE-MIT",
+      "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-ffi-0.22.6/LICENSE-APACHE",
+      "sha256": "71073d492e996de196dbe1eb1e4c94c27c014c841b288161265b2efd06d0af28",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-ffi-0.22.6/LICENSE-MIT",
+      "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-macros-0.22.6/LICENSE-APACHE",
+      "sha256": "71073d492e996de196dbe1eb1e4c94c27c014c841b288161265b2efd06d0af28",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-macros-0.22.6/LICENSE-MIT",
+      "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-macros-backend-0.22.6/LICENSE-APACHE",
+      "sha256": "71073d492e996de196dbe1eb1e4c94c27c014c841b288161265b2efd06d0af28",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/pyo3-macros-backend-0.22.6/LICENSE-MIT",
+      "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/quote-1.0.45/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/quote-1.0.45/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/rustversion-1.0.22/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/rustversion-1.0.22/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/sha2-0.10.9/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/sha2-0.10.9/LICENSE-MIT",
+      "sha256": "b4eb00df6e2a4d22518fcaa6a2b4646f249b3a3c9814509b22bd2091f1392ff1",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/syn-2.0.117/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/syn-2.0.117/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/target-lexicon-0.12.16/LICENSE",
+      "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5",
+      "license": "Apache-2.0 WITH LLVM-exception"
+    },
+    {
+      "path": "amplifier_data/licenses/typenum-1.20.1/LICENSE",
+      "sha256": "db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/typenum-1.20.1/LICENSE-APACHE",
+      "sha256": "516b24e051bf5630880ebbd55c40a25ce9552ebaf8970a53e8976eb70e522406",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/typenum-1.20.1/LICENSE-MIT",
+      "sha256": "a825bd853ab71619a4923d7b4311221427848070ff44d990da39b0b274c1683f",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/unicode-ident-1.0.24/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0"
+    },
+    {
+      "path": "amplifier_data/licenses/unicode-ident-1.0.24/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0"
+    },
+    {
+      "path": "amplifier_data/licenses/unicode-ident-1.0.24/LICENSE-UNICODE",
+      "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0"
+    },
+    {
+      "path": "amplifier_data/licenses/unindent-0.2.4/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/unindent-0.2.4/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/version_check-0.9.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "license": "MIT/Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/licenses/version_check-0.9.5/LICENSE-MIT",
+      "sha256": "b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e",
+      "license": "MIT/Apache-2.0"
+    },
+    {
+      "path": "amplifier_data/models.py",
+      "sha256": "673c3959706b843d3a82399e40449e562f844ee3f0c7fd0ca8bc74da959bce0b",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/projection.py",
+      "sha256": "738a538d9c641585ad598e095edc4ed323a5acddd2d4294dff45a82caddb1c6a",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/query.py",
+      "sha256": "a0e0c0f81c176a5b362be515139c3e3191920b50c8721564ff6dde602fe6acf9",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/replay.py",
+      "sha256": "7ba5ff9af8255ba05fdc4827b97e6f36eea41db737a580c1bdcd915883139268",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/server.py",
+      "sha256": "3516a8b0ca8f1a8f100a5a8b3ed67155d8e2b5e2a2e9f7dd933d2239783b21d6",
+      "license": "MIT"
+    },
+    {
+      "path": "amplifier_data/store.py",
+      "sha256": "e9bb0dd3f7bb86920f5824432bf4c84f6302da1f8c2cd1cf730c8098c6057f60",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/Cargo.toml",
+      "sha256": "96ce722d2d15dfa8e100929cc3691efdc11f951463e2aec76514ade5a51403ab",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/src/codec.rs",
+      "sha256": "1bc2362fbaec11e0913296c0e87f2f571df6d9631955c184a4ca9283775efef2",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/src/file_kernel.rs",
+      "sha256": "98981b60f28dbd655eaead42a455fac4156464186cecccfba544c033adee41a2",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/src/kernel.rs",
+      "sha256": "c0a9cd7d5106767852cd5b091e6ce27b00b3cb1d455076ce9474521ca047ad6c",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/src/lib.rs",
+      "sha256": "4bbb9bddefe2400c825075954c386ee54221f4cfd12a246f09e08e72c9d65862",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/src/models.rs",
+      "sha256": "f4fbf5f4c881295d70ce10b3b56982058d48ca42826c1ee5d60c12b6764b3551",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/src/replay.rs",
+      "sha256": "c6329f99d5d0a9279c70c3937c9415821aeea41dba9bc5bd63be7ae0fba7f69c",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-core/tests/durable_gates.rs",
+      "sha256": "8a1b0daeca46047df455c7b920fccc30263120c822e49fdec912a28db13e17e0",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-py/Cargo.toml",
+      "sha256": "5c191e27cf2becbb8d93dd970a769de92cc46644181b0c05cccc4e3111c73207",
+      "license": "MIT"
+    },
+    {
+      "path": "crates/amplifier-data-py/src/lib.rs",
+      "sha256": "976e0167e2706abe9e6ce3f7da5afe7fbef03b408a78ed9296e86f855f2db6a9",
+      "license": "MIT"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "df0df64fd715eaeab18724cb764c1bda26f8737186882b3531ba9bda08e122bf",
+      "license": "MIT"
+    },
+    {
+      "path": "docs/CONSTRAINTS.md",
+      "sha256": "013cbcb84b8e9674b9564186a56b97b53efda7bea3fa476831a81277636dbbd5",
+      "license": "MIT"
+    },
+    {
+      "path": "docs/PRINCIPLES.md",
+      "sha256": "2264744ef38990edc355e887b338c36b21693838a6fcaf8a07f10a2f81597db0",
+      "license": "MIT"
+    },
+    {
+      "path": "docs/SPEC.md",
+      "sha256": "49435d3248297a6af7de60ef05d4c1adb99cf5e5d779706f98f4a29e5b5d0cae",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/bring_your_own_embedder.py",
+      "sha256": "0a5154a2f3228099f2c6035a8dbc1628b4367fcdb6fc1a730c6b54f1ac2d1b80",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/compaction.py",
+      "sha256": "5964761829f6db53b7f568b5f8349a3e97d429c32ae7a71d49c31bb63c2acd41",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/companion_server.py",
+      "sha256": "b17876b4c4aa04bc7c8096f0ddddd8f022d4de78a73a68291fad25a4d4abf137",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/convergent_integrity.py",
+      "sha256": "2cd604e1bc57bc92e2db4fcbfec852cca998f1e72b267e067e9930856b67d62e",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/durable_restart.py",
+      "sha256": "9c05f03a190a75838339044beecb7b64ea5a9d14c21db9d4e1d9d66ffdab647b",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/graph_traverse.py",
+      "sha256": "90be7a7ab759de035f69893701878e6870596fb1060c6bc57a5aefe0af5ab210",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/intent_query.py",
+      "sha256": "c5d2ef9971e7f6e2043fd21b2cab88ac69c041134dd364a0ec009f167eb4979c",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/query_language.py",
+      "sha256": "624d0c25889d2ec697fe43f7933a9a266b3ef201659baf9d407f0de86c3dfd2a",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/scope_and_access.py",
+      "sha256": "f64d5dc608f68df945be3421cb84173ab878c22cb1755fa8d072c1ef09f01a22",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/synthetic_workload.py",
+      "sha256": "4d2befaa3340d9622a45b4bcb2e60f06dffd5a75e3e7824a46f70c941ed10fa2",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/temporal_facts.py",
+      "sha256": "b2279eb84feeb128010d9c8c6330b495bc2504258f8ad276a9798c6fa7587f4e",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/vector_lens.py",
+      "sha256": "45a6c758254785d1ba23c79aac3c998881b5de7602e423479799915816514a20",
+      "license": "MIT"
+    },
+    {
+      "path": "examples/visualize.py",
+      "sha256": "057643cc04dfe93ecb07e54e3719199f04afae9d3882bf12849eeec9782ee86a",
+      "license": "MIT"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "aa88e84da5a616e7a2f2b8ef3772a548fd38f53ab60e8008a19ce28223b029b2",
+      "license": "MIT"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "052c68f90f208051e52aeeaf4da126467bf1f96c63100d4b3fe1f36fa931d7d4",
+      "license": "MIT"
+    },
+    {
+      "path": "scripts/test_installed.py",
+      "sha256": "84d8d6f48ce10c0be4cc49c0253d32f9d8b9d836e438b2177228ae56273be337",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_add_to_scope_alias.py",
+      "sha256": "d7fea25c6516d637a9f3201e0450982920d1a984057cc4ebc8189bec39d76d97",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_amplifier_store_path_optin.py",
+      "sha256": "7fb17ae6e0aa23d66b515f6693fc38fd7566e07bc6c1f9cca65b8b85b9a615cb",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_bm25_lens.py",
+      "sha256": "e8d99b50c9da0f60f7f18046a6afd565f4c29e4bec5bff5e58961c9d1b03202a",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_compaction.py",
+      "sha256": "0aa794ee22968ecc1d4d49fb8ea0ce96cee5aae772ce6dcbb529d8a9415c29fe",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_companion_server.py",
+      "sha256": "3c376f8dfa84e8c7408522859f830081ec1a9ab46b4f70d16b04505af8691b44",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_doctor.py",
+      "sha256": "7af4ea760230475b30d73b4bc2a62801457abe40f3798e869b00f758215b10fc",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_durable_restart.py",
+      "sha256": "282f7cc51a3f840a1f3e03c382192aaa036ce5a679ffaf0df41b1bbf50202024",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_e1_interpreter_replay.py",
+      "sha256": "61c195ca356586845223e563506eca10e5dd48c256eafc7f6c537525affce102",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_e1_regeneration.py",
+      "sha256": "d3a8f9b9e52082a94725ed3f33c511a8987d4c82fa44b2ee4e30bc92b4ad73aa",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_e2_lens_protocol.py",
+      "sha256": "e517b06c86a87e09f81b9d0e0852aad33ac83efae481f23aa88a9b1e2588c15a",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_e2_lens_swap.py",
+      "sha256": "e88f77ba0696ae883e6f2ba72e01a21e37ad8deddbc4a52b804d0e7747ef540f",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_e3_static_index.py",
+      "sha256": "1493e265048752cbb697dd3d05d7d22ca0f67f1cb6e1575797aa90766dfde3f2",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_embedding.py",
+      "sha256": "b2e341cc64dfaf7f7b5d772fb2a9aef190003d3cbd1e219f393ad802f52d9815",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_example_scope_and_access.py",
+      "sha256": "37b51f6ca8f45fd99cee7c8f15267af06df7f272d9f1564716ec25ec499c270a",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_graph_lens.py",
+      "sha256": "942eb5c5ee658b79bf38add5ae60d752e747fd6c792ce0b1ebdf5502218215c0",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_grouped_lens.py",
+      "sha256": "f0c1ea2bd2f0e21183b20040a4a35f1161fa944828940b4f3e8a380eb24f5986",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_grouped_scope.py",
+      "sha256": "872f21f5a3f3012eddd412df2f95473bc35d213577bb662765f27b3ae68bb607",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_index_cell_event.py",
+      "sha256": "f0ab9560c3ecac2c46430399715fbf9f1fd41f9d3a14362be799242e5a53c511",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_index_lens_static_fold.py",
+      "sha256": "6b2d0e0a1f76086c1fe5cbbcb16b8f4fb898f627455d2b5de9d19a6e6e0113cc",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_index_scope.py",
+      "sha256": "3cc5208a88185593757345b56e1b2d9c94b747b8baf07cf3ea1df89593d72cfd",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_integrity.py",
+      "sha256": "78cb6b52960c0c1ce725cbe92cbd62b8816f37703207f12839e04777e65b0223",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_intent.py",
+      "sha256": "f2f3e5b342f697dbf08eb5f3a76cceaf87fd2c6e207283d9637d49bd50b44ac0",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_interpreter.py",
+      "sha256": "85ca0d025f01a22c236ff6fd943b5b9338b5c15580309275f92ce6ee446aa0f8",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_kernel.py",
+      "sha256": "0bc0c8abe14fdb2b1e7f54a0d654ae150e22db18ada941e222517ff387b19486",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_models.py",
+      "sha256": "5e18fa8aba4346f34b3d6cd5baab9d474a1e050e99562c2995bb5f283de27a47",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_projection.py",
+      "sha256": "66b0e079fbd538d3d63afb0550c9b25fb5e8ae353894e5cecee8694721950d9f",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_public_release_layout.py",
+      "sha256": "5bbf71d2e75be72033652447490d4e4a1892a130bd2b31e034bac6014374da92",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_query_language.py",
+      "sha256": "71da20772c63984e879e3f85c5c6ef7ff6b3fb8d664f7376ba5aa483b109ab9f",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_relational_lens.py",
+      "sha256": "9ed3f1a7b06a383f2ed106539ba7b7dfb6c28e0b8c2ae78b2fe83f0c4d5df199",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_relational_scope.py",
+      "sha256": "fc09f12194df1bce6110d74beb5dddd983414abb5da962aeeddf8d9fe35db17e",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_rust_binding.py",
+      "sha256": "61103ccdc60770557a3c8dcf27ea534f093876416cec057375263e16c66354cb",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_rust_file_kernel_smoke.py",
+      "sha256": "f69c6885775f19b77d274d7b8779b8ac32656049faf68f3d123c5d6b85022da1",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_scope_determinism.py",
+      "sha256": "ed9237db727e588df02f50f835623a280be40360ff0f4c51df7b94e94d01a926",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_scope_durable_restart.py",
+      "sha256": "8c6ce074216da36874fe2778c29ddd8a73c079b8a2a4180039e527183628ddd3",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_scope_fold.py",
+      "sha256": "b177157461a99df19baa839a368ef3b82ba08bc6966f4d044ce2f4d2899d9b59",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_server_auth.py",
+      "sha256": "245092014a0bd5e00293395fbb2329512a54b531c97ad110ec2dce34b99da973",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_store_access_append.py",
+      "sha256": "fe5e9f208842af5f8f634ffccd3ad1842f19fb31889c5b53c5dcc353931ee2e1",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_store_record_access.py",
+      "sha256": "0817ffb4c2a79b7863052d3f54593c2bf0f50fed8bd841c5c465f522a78479f9",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_store_scope.py",
+      "sha256": "8f7873a1712b1d7f1a096971ea336e1f0fbc2be1c76b8a89d689483177a1a5b5",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_store_scope_query.py",
+      "sha256": "bc9df393298f923a39f282c798c5b5ba717d9234a23a99d84e2bbd921172cbb4",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_t3d1_async_write_seam.py",
+      "sha256": "469330a78bc694f2ab3d568cf6e3e1a23a0f360e7e54dd8a08364858734b17d2",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_t3d2_atomic_batch_rollback.py",
+      "sha256": "5c8c78ecd372fbb036cb2908933f5cd0af3ee37a0283cebd51988795d1335ad4",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_t3d3_causal_tag.py",
+      "sha256": "fa0877340854208662931775921ecbcf188af4437037fe7f0e62383a7af17829",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_t3e_autonomic_self_indexing.py",
+      "sha256": "f2345661336e18c8bc93a2db2ee86514c9e8af73701962ef074379f7baf19aa0",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_temporal_lens.py",
+      "sha256": "44e234f9389ed7b2963e72f4e939efaf8aa2d0b60374b8d89fbf2b360e3c6e15",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_vector_durable_restart.py",
+      "sha256": "3d5030f64e9712b4f160f2c18cdab5e630f6e6a0b5f440b10cb8030a06459a11",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_vector_lens.py",
+      "sha256": "406cb7fc18f5c24cb4de098d435874ad75eb8ca27bff3de45f4d3c9e8de970a7",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_vector_scope.py",
+      "sha256": "1deceeb8fbc271e2ba2be7da81dab5cb8f6b263755c528e21167c102cce2b3d5",
+      "license": "MIT"
+    },
+    {
+      "path": "tests/test_vector_store.py",
+      "sha256": "aa84de410ad969ec2778b1b8b0c7a568766d3c26896565521c1ad40e684284f3",
+      "license": "MIT"
+    }
+  ]
+}

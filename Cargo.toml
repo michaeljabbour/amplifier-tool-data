@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "crates/amplifier-data-core",
+    "crates/amplifier-data-py",
+]
+resolver = "2"

@@ -1,0 +1,59 @@
+[build-system]
+requires = ["maturin>=1.0,<2"]
+build-backend = "maturin"
+
+[tool.maturin]
+manifest-path = "crates/amplifier-data-py/Cargo.toml"
+python-source = "."
+module-name = "amplifier_data._rust"
+features = ["pyo3/extension-module"]
+include = [{ path = "amplifier_data/licenses/**/*", format = ["sdist", "wheel"] }]
+
+[project]
+name = "amplifier-data"
+version = "0.2.0"
+description = "An append-only event substrate with content-addressed, regenerable Cells — and SQL / grouped / index / vector views as swappable lenses over one log. A data store shaped for the AI age."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Michael J. Jabbour" }]
+requires-python = ">=3.11"
+dependencies = []
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+amplifier-data-doctor = "amplifier_data.doctor:main"
+
+[project.urls]
+Homepage = "https://github.com/michaeljabbour/amplifier-tool-data"
+Issues = "https://github.com/michaeljabbour/amplifier-tool-data/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "pyright>=1.1.380",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = ["archive"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pyright]
+include = ["amplifier_data", "tests", "examples"]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+reportMissingImports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

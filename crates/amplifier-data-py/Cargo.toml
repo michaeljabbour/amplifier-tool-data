@@ -1,0 +1,18 @@
+[package]
+name = "amplifier-data-py"
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+description = "PyO3 binding exposing the amplifier-data-core kernel as amplifier_data._rust."
+repository = "https://github.com/michaeljabbour/amplifier-tool-data"
+
+[lib]
+name = "_rust"               # final import is amplifier_data._rust (set by maturin module-name)
+crate-type = ["cdylib"]
+test = false
+
+[dependencies]
+amplifier-data-core = { path = "../amplifier-data-core" }
+pyo3 = { version = "0.22", features = ["abi3-py311"] }
+# `extension-module` is injected by maturin via pyproject features — do NOT enable it here
+# (it would break `cargo test`/`cargo build` link steps).
