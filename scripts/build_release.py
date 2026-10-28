@@ -32,6 +32,10 @@ def normalize_sdist(path):
     buffer=io.BytesIO()
     with tarfile.open(fileobj=buffer,mode='w',format=tarfile.PAX_FORMAT) as out:
         for info,data in sorted(entries,key=lambda x:x[0].name):
+            if info.isfile() and info.name.split('/',1)[-1]=='Cargo.toml':
+                # Maturin rewrites workspace formatting. Preserve the exact
+                # approved source bytes so the export manifest remains valid.
+                data=(ROOT/'Cargo.toml').read_bytes();info.size=len(data)
             if not (info.isfile() or info.isdir()):raise ValueError('Source release must not contain links or special files')
             info.uid=info.gid=0;info.uname=info.gname='';info.mtime=EPOCH;info.pax_headers={}
             info.mode=0o755 if info.isdir() else 0o644

@@ -597,7 +597,7 @@
     },
     {
       "path": "scripts/build_release.py",
-      "sha256": "052c68f90f208051e52aeeaf4da126467bf1f96c63100d4b3fe1f36fa931d7d4",
+      "sha256": "cb80302aaab72c9074b654bf1a49862566fe1581e95574be4675917f90b9d20d",
       "license": "MIT"
     },
     {
