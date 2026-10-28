@@ -43,12 +43,10 @@
   ],
   "install_commands": [
     "python3 -m venv .venv",
-    ". .venv/bin/activate",
-    "python3 -m pip install ."
+    ".venv/bin/python -m pip install .",
+    ".venv/bin/amplifier-data-doctor --self-test"
   ],
-  "runtime_install_commands": [
-    "amplifier-data-doctor --self-test"
-  ],
+  "runtime_install_commands": [],
   "verification": [
     {
       "name": "Reviewed public export",
@@ -119,7 +117,8 @@
     "install_notes": [
       "Python 3.11+, Rust (cargo/rustc) and a native compiler are required for source installation.",
       "A reviewed macOS Apple silicon wheel and source distribution are linked from the public release guide.",
-      "Package name: amplifier-data. Python import: amplifier_data. No model or runtime Python dependency is owned by this library."
+      "Package name: amplifier-data. Python import: amplifier_data. No model or runtime Python dependency is owned by this library.",
+      "The shown commands use macOS/Linux virtual-environment paths. Windows uses .venv\\Scripts executables; Windows native acceptance remains unverified."
     ],
     "proof_summary": "The reviewed source and native artifacts resolve publicly. Installed-wheel tests on macOS Apple silicon and Ubuntu 24.04 check exact bytes, scoped consumers, regeneration and durable restart. Other platforms and outside-user acceptance remain open.",
     "next_step": "Install in a fresh environment, run the doctor on its temporary test store, then adapt one small example to your own consumer."
