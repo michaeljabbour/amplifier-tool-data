@@ -7,7 +7,7 @@ manifest-path = "crates/amplifier-data-py/Cargo.toml"
 python-source = "."
 module-name = "amplifier_data._rust"
 features = ["pyo3/extension-module"]
-include = [{ path = "amplifier_data/licenses/**/*", format = ["sdist", "wheel"] }]
+include = [{ path = "amplifier_data/licenses/**/*", format = ["sdist", "wheel"] }, { path = "docs/*.md", format = "sdist" }, { path = "tests/*.py", format = "sdist" }, { path = "examples/*.py", format = "sdist" }, { path = "scripts/*.py", format = "sdist" }, { path = "EXPORT-MANIFEST.json", format = "sdist" }, { path = "AGENTS.md", format = "sdist" }, { path = "THIRD_PARTY_NOTICES.md", format = "sdist" }]
 
 [project]
 name = "amplifier-data"
