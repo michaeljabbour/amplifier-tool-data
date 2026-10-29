@@ -2,6 +2,8 @@
 
 Keep original evidence once. Build the views each capability needs.
 
+Watch the [63-second film](https://michaeljabbour.github.io/amplifier-tool-data/#film): one true sentence copied into three tools until no original is left, and how Data keeps the exact bytes once while each tool builds its own view. The example in it is fictional.
+
 An independent Python library with a Rust storage kernel. It retains exact bytes as content-addressed Cells in an append-only log, then lets each consumer derive scopes, relations and query views. Memory is one consumer; the storage library does not import or own Memory, your application or an AI model.
 
 [Explore the site](https://michaeljabbour.github.io/amplifier-tool-data/) · [Reviewed release and artifacts](https://github.com/michaeljabbour/amplifier-tool-data/releases/tag/v0.2.0-reviewed) · [Specification](docs/SPEC.md)

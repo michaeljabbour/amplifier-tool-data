@@ -157,6 +157,55 @@ def markdown(text):
     return "\n".join(out)
 
 
+def render_film(data):
+    """The film section: player, captions, downloads and transcript. Empty when the repo has no film.
+    Only the files present in site/film are offered (webm, mp4, vtt, 15-second cut, poster)."""
+    f = data.get("film")
+    folder = ROOT / ((f or {}).get("dir") or "site/film")
+    if not f or not folder.is_dir():
+        return "", "", ""
+    stem = f["file"]
+    have = lambda suffix: (folder / (stem + suffix)).exists()
+    base = "film/" + stem
+    poster = next((base + s for s in ("-poster.jpg", "-poster.png") if have(s)), "")
+    sources = ('<source src="' + base + '.webm" type="video/webm">' if have(".webm") else "") + '<source src="' + base + '.mp4" type="video/mp4">'
+    track = '<track kind="captions" src="' + base + '.vtt" srclang="en" label="English" default>' if have(".vtt") else ""
+    links = ['<a href="' + base + '.mp4" download>Download the film</a>']
+    if have("-15s.mp4"):
+        links.append('<a href="' + base + '-15s.mp4" download>15-second cut</a>')
+    if have(".vtt"):
+        links.append('<a href="' + base + '.vtt" download>Captions</a>')
+    lines = [x.strip() for x in (folder / (stem + ".txt")).read_text().splitlines() if x.strip()] if have(".txt") else []
+    transcript = (
+        '<details class="film-transcript"><summary id="film-transcript-summary">Read the transcript</summary>'
+        + "".join("<p>" + E(x) + "</p>" for x in lines)
+        + "</details>"
+        if lines
+        else ""
+    )
+    section = (
+        '<section id="film" class="section film-section" aria-labelledby="film-title"><div class="section-heading"><div><p class="kind">The film</p><h2 id="film-title">'
+        + E(f["heading"])
+        + "</h2></div><p>"
+        + E(f["blurb"])
+        + '</p></div><figure class="film-frame"><video controls preload="metadata" playsinline'
+        + (' poster="' + poster + '"' if poster else "")
+        + (' aria-describedby="film-transcript-summary"' if lines else "")
+        + ">"
+        + sources
+        + track
+        + '<a href="' + base + '.mp4">Download the film (MP4)</a></video><figcaption>'
+        + ' <span aria-hidden="true">&middot;</span> '.join(links)
+        + "</figcaption></figure>"
+        + transcript
+        + ('<p class="note">' + E(f["note"]) + "</p>" if f.get("note") else "")
+        + "</section>"
+    )
+    nav = '<a href="#film">Film</a>'
+    action = '<a class="text-link" href="#film">Watch the ' + str(int(f["seconds"])) + "-second film</a>"
+    return section, nav, action
+
+
 def render_marketing(
     data,
     *,
@@ -174,6 +223,7 @@ def render_marketing(
 ):
     """Render a product explanation from source-bound copy, without model calls."""
     m = data.get("marketing", {})
+    film_section, film_nav, film_action = render_film(data)
     name = E(data["display_name"])
     repo = safe_url(data.get("repository_url", ""))
     source_link = (
@@ -275,10 +325,11 @@ def render_marketing(
         else ""
     )
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f4ee"><meta name="description" content="{E(data["promise"], quote=True)}"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>{name} | Amplifier</title><link rel="stylesheet" href="style.css"><script src="site.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true"></span><span>Amplifier<small>Skills and tools for thoughtful work</small></span></a><nav aria-label="Main navigation"><a href="#try">Explore</a><a href="#method">How it works</a><a href="#install">Install</a><a href="#evidence">Evidence</a></nav></div></header>
-<main id="main" class="wrap"><section class="hero"><div class="hero-copy"><p class="kind">{E(data["kind"].replace("-", " ").capitalize())}</p><h1>{name}</h1><p class="promise">{headline}</p><p class="lede">{lead}</p><div class="actions"><a class="button primary" href="#install">Use {name}</a><a class="text-link" href="#try">Walk through an example</a></div></div>{preview}</section>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f4ee"><meta name="description" content="{E(data["promise"], quote=True)}"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>{name} | Amplifier</title><link rel="stylesheet" href="style.css"><script src="site.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true"></span><span>Amplifier<small>Skills and tools for thoughtful work</small></span></a><nav aria-label="Main navigation">{film_nav}<a href="#try">Explore</a><a href="#method">How it works</a><a href="#install">Install</a><a href="#evidence">Evidence</a></nav></div></header>
+<main id="main" class="wrap"><section class="hero"><div class="hero-copy"><p class="kind">{E(data["kind"].replace("-", " ").capitalize())}</p><h1>{name}</h1><p class="promise">{headline}</p><p class="lede">{lead}</p><div class="actions"><a class="button primary" href="#install">Use {name}</a>{film_action}<a class="text-link" href="#try">Walk through an example</a></div></div>{preview}</section>
 {benefits_section}
+{film_section}
 <section id="try" class="section"><div class="section-heading"><h2>See the work take shape.</h2><p>{E(m.get("example_note", "These examples are fictional. They illustrate the intended workflow and its limits."))}</p></div>{walkthrough}<div class="worked-example">{example_ui}</div></section>
 <section id="method" class="section"><div class="section-heading"><h2>A clear job.<br>A useful stopping point.</h2><p>{E(data.get("trigger", ""))}</p></div><div class="fit-grid"><div><h3>Use it when</h3><ul>{use_when}</ul></div><div><h3>Choose another route when</h3><ul>{not_for}</ul></div></div><div class="mode-grid">{modes}</div><details class="method-details"><summary>Read the canonical method</summary><div class="method">{method}</div></details><details><summary>Limits and prerequisites</summary><ul>{boundaries}</ul></details></section>
 <section id="install" class="section"><div class="section-heading"><h2>Your first useful run.</h2><p>{E(m.get("next_step", "Install the capability, bring one real task and inspect the result before relying on it."))}</p></div><div class="install-grid"><div>{portable_intro}<div class="actions">{download}{source_link}</div>{install}<p class="note">{install_note}</p><ul class="install-notes">{install_notes}</ul></div><div>{prompt_box}<div class="reading"><h3>Keep the guide nearby</h3><p>{doc_links}</p></div></div></div><p class="copy-status" role="status" aria-live="polite"></p></section>
@@ -295,6 +346,12 @@ def build(data):
     for name in ("style.css", "site.js"):
         shutil.copyfile(assets / name, output / name)
     shutil.copytree(assets / "theme", output / "theme")
+    film = data.get("film")
+    if film:
+        (output / "film").mkdir()
+        for media in within(ROOT / (film.get("dir") or "site/film"), ROOT).glob(film["file"] + "*"):
+            if media.suffix in {".mp4", ".webm", ".vtt", ".jpg", ".png"}:
+                shutil.copyfile(media, output / "film" / media.name)
     docs = list(
         dict.fromkeys(
             ["README.md", "LICENSE", "CHANGELOG.md", "capability.json"]

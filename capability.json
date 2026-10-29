@@ -122,5 +122,12 @@
     ],
     "proof_summary": "The reviewed source and native artifacts resolve publicly. Installed-wheel tests on macOS Apple silicon and Ubuntu 24.04 check exact bytes, scoped consumers, regeneration and durable restart. Other platforms and outside-user acceptance remain open.",
     "next_step": "Install in a fresh environment, run the doctor on its temporary test store, then adapt one small example to your own consumer."
+  },
+  "film": {
+    "file": "data-film",
+    "seconds": 63,
+    "heading": "Three copies. No original.",
+    "blurb": "In 63 seconds, one true sentence goes into three tools and comes out as three versions. Amplifier Data keeps the original once, as exact bytes on a log that only moves forward. Each tool builds its own view that points back home, and after the lights go out the original comes back byte for byte. It is a library for builders: it keeps evidence honest and does not promise smarter answers. Captions are on the player; a transcript is below.",
+    "note": "The sentence, the tools and the copier are a fictional example, shared with the Memory film. The film shows how the library behaves; it does not report results."
   }
 }
