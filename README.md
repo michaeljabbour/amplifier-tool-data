@@ -60,3 +60,7 @@ The repository is `amplifier-tool-data`; package/import identities remain `ampli
 ## License
 
 MIT. Original notices are retained, together with [third-party Rust dependency notices](THIRD_PARTY_NOTICES.md) and the supplied license texts in `amplifier_data/licenses/`.
+
+## Repository migration
+
+This repository was renamed from `amplifier-tool-data` to `amplifier-capability-data`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.
