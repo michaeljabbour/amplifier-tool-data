@@ -7,12 +7,12 @@
   "files": [
     {
       "path": ".gitignore",
-      "sha256": "8b954aa502dd3372f6e0abbd8cc3118b43f7fb48560eae2eb22155f6b8e8e16a",
+      "sha256": "7cc9b59ef6c9f35c98b1899ee7af5d592ef1ab141f080a4e95552a414ce46b51",
       "license": "MIT"
     },
     {
       "path": "AGENTS.md",
-      "sha256": "88844ec607dca95123251b5a22df49ee4ebf8413aa5bcc9c1dc74a7d29decb53",
+      "sha256": "6290bca3e6193ef9eb9c466fa8a1e4ae3dc6059cf12064ec7693520f5e22f776",
       "license": "MIT"
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "cd3ffb3041b571740270465e7ed29c460e38602c6ebfe6002bbf1cb71da82b22",
+      "sha256": "0b5895d39c6cb5a3dec03639825bbe31ca825abeb319e54e8bf66b12e0eab7b3",
       "license": "MIT"
     },
     {
@@ -856,5 +856,5 @@
       "license": "MIT"
     }
   ],
-  "public_documentation_additions": "Native implementation unchanged from reviewed tag v0.2.0-reviewed. README and .gitignore are updated for public site use; site, release guide and CI are later public additions."
+  "public_documentation_additions": "Native implementation unchanged from reviewed tag v0.2.0-reviewed. README, .gitignore and AGENTS hashes follow the current public documentation and capability identity. The reviewed tag preserves the original frozen source boundary; site assets, release guide and CI are later public additions."
 }
