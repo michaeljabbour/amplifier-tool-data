@@ -2,7 +2,7 @@
   "id": "data-substrate",
   "display_name": "Amplifier Data",
   "kind": "library",
-  "repository_url": "https://github.com/michaeljabbour/amplifier-tool-data",
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-data",
   "promise": "Keep original evidence once. Build the views each capability needs.",
   "audience": "Developers building evidence, memory or artifact tools that need a shared durable substrate.",
   "trigger": "Several capabilities need exact retained bytes, provenance and their own replaceable views over the same log.",
@@ -123,11 +123,86 @@
     "proof_summary": "The reviewed source and native artifacts resolve publicly. Installed-wheel tests on macOS Apple silicon and Ubuntu 24.04 check exact bytes, scoped consumers, regeneration and durable restart. Other platforms and outside-user acceptance remain open.",
     "next_step": "Install in a fresh environment, run the doctor on its temporary test store, then adapt one small example to your own consumer."
   },
+  "name": "amplifier-capability-data",
+  "legacy_names": [
+    "amplifier-tool-data"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": "0.2.0",
+  "version_basis": "Existing release metadata",
+  "engine": "None",
+  "engine_components": {
+    "storage_kernel": "None",
+    "consumer_interpretation": "Owned outside substrate"
+  },
+  "surfaces": [
+    "cli",
+    "python-library"
+  ],
+  "portable_method": null,
+  "interfaces": {
+    "portable": null,
+    "native": {
+      "distribution": "amplifier-data",
+      "entrypoints": {
+        "amplifier-data-doctor": "amplifier_data.doctor:main"
+      },
+      "docs": [
+        "docs/PUBLIC-RELEASE.md",
+        "docs/CONSTRAINTS.md",
+        "docs/SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": null,
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Alpha library. Durable paths require the native Rust kernel; the Python source fallback is in-memory only.",
+        "One writer owns a durable file; multi-process access uses the companion server/RemoteStore seam.",
+        "Invalidation does not erase bytes from an append-only log. Keep original logs and review retention separately.",
+        "The supplied binary wheel is macOS Apple silicon only. Source-built native acceptance also passes on Ubuntu 24.04/Python 3.12; other platform/toolchain combinations remain unverified."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
   "film": {
     "file": "data-film",
     "seconds": 63,
     "heading": "Three copies. No original.",
     "blurb": "In 63 seconds, one true sentence goes into three tools and comes out as three versions. Amplifier Data keeps the original once, as exact bytes on a log that only moves forward. Each tool builds its own view that points back home, and after the lights go out the original comes back byte for byte. It is a library for builders: it keeps evidence honest and does not promise smarter answers. Captions are on the player; a transcript is below.",
     "note": "The sentence, the tools and the copier are a fictional example, shared with the Memory film. The film shows how the library behaves; it does not report results."
-  }
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-tool-data"
+  ]
 }
